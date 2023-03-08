@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:inclass_w5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600" ResizeMode="NoResize"
+        Title="MainWindow" Height="600" Width="600" 
         Loaded="Window_Loaded">
     <Window.Resources>
         <local:Relative2AbsoluteConverter x:Key="converter"/>
     </Window.Resources>
-    <Canvas>
+    
         <DockPanel LastChildFill="True">
             <StackPanel Orientation="Horizontal" Height="50" DockPanel.Dock="Top">
                 <Button Content="Insert" Click="addButton_Click"  HorizontalAlignment="Left" VerticalAlignment="Center" />
@@ -71,5 +71,5 @@
             </ComboBox.ItemTemplate>
         </ComboBox>-->
 
-    </Canvas>
+    
 </Window>
