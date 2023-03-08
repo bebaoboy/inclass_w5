@@ -5,16 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:inclass_w5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="348" Width="390"
+        Title="MainWindow" Height="600" Width="600" ResizeMode="NoResize"
         Loaded="Window_Loaded">
     <Window.Resources>
         <local:Relative2AbsoluteConverter x:Key="converter"/>
     </Window.Resources>
     <Canvas>
-        <Button Content="Insert" Click="addButton_Click" Canvas.Left="78" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <Button Content="Update" Click="updateButton_Click" Canvas.Left="232" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Button Content="Delete" Click="deleteButton_Click" Canvas.Left="154" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <ComboBox Padding="10, 10, 0, 0" Name="booksComboBox" Width="200" Height="50" Canvas.Left="78" Canvas.Top="115">
+        <DockPanel LastChildFill="True">
+            <StackPanel Orientation="Horizontal" Height="50" DockPanel.Dock="Top">
+                <Button Content="Insert" Click="addButton_Click" Canvas.Left="78" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <Button Content="Update" Click="updateButton_Click" Canvas.Left="232" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content="Delete" Click="deleteButton_Click" Canvas.Left="154" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </StackPanel>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="10, 10, 0, 0" Name="bookListView" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Image RenderOptions.BitmapScalingMode="HighQuality" Margin="0, 0, 5, 0" Width="100" Height="100" Source="{Binding coverImage, Converter={StaticResource converter}}"/>
+                            <TextBlock TextAlignment="Center">
+                        <Run Text="{Binding title}" FontWeight="Bold" Foreground="Blue"/>- 
+                        <!--<Run Text="{Binding author}" Foreground="Red"/>-
+                        <Run Text="{Binding publishedYear}" Foreground="Red"/>-->
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </DockPanel>
+        <!--<ComboBox Padding="10, 10, 0, 0" Name="booksComboBox" Width="200" Height="50" Canvas.Left="78" Canvas.Top="115">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -27,7 +50,7 @@
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
-        </ComboBox>
+        </ComboBox>-->
 
     </Canvas>
 </Window>

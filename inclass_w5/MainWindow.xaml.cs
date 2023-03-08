@@ -41,8 +41,8 @@ namespace inclass_w5
                     author = element[3]
                 });
             }
-            booksComboBox.ItemsSource = books;
-            booksComboBox.SelectedIndex = 0;
+            bookListView.ItemsSource = books;
+            bookListView.SelectedIndex = 0;
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -58,16 +58,16 @@ namespace inclass_w5
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            int i = booksComboBox.SelectedIndex;
+            int i = bookListView.SelectedIndex;
             books.RemoveAt(i);
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            int i = booksComboBox.SelectedIndex;
+            int i = bookListView.SelectedIndex;
             books[i].title = "Nha Gia Kim";
             books[i].author = "Paulo Coelho";
-            books[i].coverImage = "img/nhagiakim.jpg";
+            books[i].coverImage = "img/dacnhantam.jpg";
             books[i].publishedYear = 1988;
         }
 
