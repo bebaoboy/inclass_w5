@@ -70,5 +70,13 @@ namespace inclass_w5
             books[i].coverImage = "img/nhagiakim.jpg";
             books[i].publishedYear = 1988;
         }
+
+        private void booksListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int i = booksComboBox.SelectedIndex;
+            MessageBox.Show("Tiêu đề: "  + books[i].title
+                +"\nTác giả:" + books[i].author + "\n"
+                +"Năm xuất bản:" + books[i].publishedYear);
+        }
     }
 }
