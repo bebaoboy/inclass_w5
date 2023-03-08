@@ -13,9 +13,9 @@
     <Canvas>
         <DockPanel LastChildFill="True">
             <StackPanel Orientation="Horizontal" Height="50" DockPanel.Dock="Top">
-                <Button Content="Insert" Click="addButton_Click" Canvas.Left="78" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <Button Content="Update" Click="updateButton_Click" Canvas.Left="232" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Button Content="Delete" Click="deleteButton_Click" Canvas.Left="154" Canvas.Top="61" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content="Insert" Click="addButton_Click"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <Button Content="Update" Click="updateButton_Click"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content="Delete" Click="deleteButton_Click"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </StackPanel>
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="10, 10, 0, 0" Name="bookListView" >
                 <ListView.ItemTemplate>
@@ -37,13 +37,13 @@
                 </ListView.ItemsPanel>
                 <ListView.Resources>
                     <ContextMenu x:Key="booksContextMenu">
-                        <MenuItem Header="View details">
+                        <MenuItem Header="View details" Click="viewdetailMenu_Click">
                             <MenuItem.Icon>
-                                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="Images/avatar01.jpg"/>
+                                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding coverImage, Converter={StaticResource converter}}"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="Delete" Click="deleteMenu_Click"/>
-                        <MenuItem Header="Edit"/>
+                        <MenuItem Header="Edit"  Click="editMenu_Click"/>
                     </ContextMenu>
                 </ListView.Resources>
                 <ListView.ItemContainerStyle>

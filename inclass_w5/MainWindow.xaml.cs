@@ -71,22 +71,33 @@ namespace inclass_w5
             books[i].publishedYear = 1988;
         }
 
+        private void showDetail(int i)
+        {
+            MessageBox.Show("Tiêu đề: " + books[i].title
+                + "\nTác giả:" + books[i].author + "\n"
+                + "Năm xuất bản:" + books[i].publishedYear);
+        }
+
         private void booksListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             int i = bookListView.SelectedIndex;
-            MessageBox.Show("Tiêu đề: "  + books[i].title
-                +"\nTác giả:" + books[i].author + "\n"
-                +"Năm xuất bản:" + books[i].publishedYear);
-        }
-
-        private void deleteMenu_Click(object sender, RoutedEventArgs e)
-        {
-
+            showDetail(i);
         }
 
         private void editMenu_Click(object sender, RoutedEventArgs e)
         {
+            updateButton_Click(sender, e);
+        }
 
+        private void deleteMenu_Click(object sender, RoutedEventArgs e)
+        {
+            deleteButton_Click(sender, e);
+        }
+
+        private void viewdetailMenu_Click(object sender, RoutedEventArgs e)
+        {
+            int i = bookListView.SelectedIndex;
+            showDetail(i);
         }
     }
 }
