@@ -73,10 +73,20 @@ namespace inclass_w5
 
         private void booksListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int i = booksComboBox.SelectedIndex;
+            int i = bookListView.SelectedIndex;
             MessageBox.Show("Tiêu đề: "  + books[i].title
                 +"\nTác giả:" + books[i].author + "\n"
                 +"Năm xuất bản:" + books[i].publishedYear);
+        }
+
+        private void deleteMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void editMenu_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
