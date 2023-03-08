@@ -70,5 +70,15 @@ namespace inclass_w5
             books[i].coverImage = "img/dacnhantam.jpg";
             books[i].publishedYear = 1988;
         }
+
+        private void editMenu_Click(object sender, RoutedEventArgs e)
+        {
+            updateButton_Click(sender, e);
+        }
+
+        private void deleteMenu_Click(object sender, RoutedEventArgs e)
+        {
+            deleteButton_Click(sender, e);
+        }
     }
 }
