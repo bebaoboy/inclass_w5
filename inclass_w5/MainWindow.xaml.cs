@@ -49,8 +49,8 @@ namespace inclass_w5
         {
             books.Add(new Book()
             {
-                title = "Nha gia kim",
-                coverImage = "img/nhagiakim.jpg",
+                title = "Nhà giả kim",
+                coverImage = "img/dacnhantam.jpg",
                 publishedYear = 1988,
                 author = "Paulo Coelho"
             });
