@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace bookManager
+namespace inclass_w5
 {
     internal class Relative2AbsoluteConverter : IValueConverter
     {

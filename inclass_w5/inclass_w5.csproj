@@ -9,11 +9,6 @@
 
   <ItemGroup>
     <None Remove="data\book_data.csv" />
-    <None Remove="img\benhdaday.png" />
-    <None Remove="img\dacnhantam.jpg" />
-    <None Remove="img\giolanhdaumua.jpg" />
-    <None Remove="img\hoangtube.jpg" />
-    <None Remove="img\truyencotich.webp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,21 +18,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\benhdaday.png">
+    <None Update="img\benhdaday.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\dacnhantam.jpg">
+    </None>
+    <None Update="img\dacnhantam.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\giolanhdaumua.jpg">
+    </None>
+    <None Update="img\giolanhdaumua.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\hoangtube.jpg">
+    </None>
+    <None Update="img\hoangtube.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\truyencotich.webp">
+    </None>
+    <None Update="img\truyencotich.webp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
 
 </Project>
