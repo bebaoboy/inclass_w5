@@ -35,5 +35,15 @@ namespace inclass_w5
         {
             this.DataContext = books;
         }
+
+        private void browseImage(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void saveBookInfo(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -61,7 +61,7 @@ namespace inclass_w5
 
             if (screen.ShowDialog() == true)
             {
-
+                books.Add(screen.ReturnBook);
             }
             //screen.Show();
 
