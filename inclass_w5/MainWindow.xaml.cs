@@ -27,6 +27,7 @@ namespace inclass_w5
         }
 
         public ObservableCollection<Book> books = null;
+        private EditWindow editor;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -43,14 +44,15 @@ namespace inclass_w5
             }
             bookListView.ItemsSource = books;
             bookListView.SelectedIndex = 0;
+            editor = new EditWindow();
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             books.Add(new Book()
             {
-                title = "Nhà giả kim",
-                coverImage = "img/dacnhantam.jpg",
+                title = "Nha gia kim",
+                coverImage = "img/nhagiakim.jpg",
                 publishedYear = 1988,
                 author = "Paulo Coelho"
             });
@@ -65,10 +67,12 @@ namespace inclass_w5
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             int i = bookListView.SelectedIndex;
-            books[i].title = "Nha Gia Kim";
-            books[i].author = "Paulo Coelho";
-            books[i].coverImage = "img/dacnhantam.jpg";
-            books[i].publishedYear = 1988;
+            editor.setBook(books[i]);
+            editor.Show();
+            //books[i].title = "Nha Gia Kim";
+            //books[i].author = "Paulo Coelho";
+            //books[i].coverImage = "img/dacnhantam.jpg";
+            //books[i].publishedYear = 1988;
         }
 
         private void showDetail(int i)
