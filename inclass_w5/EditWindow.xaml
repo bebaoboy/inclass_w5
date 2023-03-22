@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:inclass_w5"
         mc:Ignorable="d"
-        Title="EditWindow" Height="200" Width="200" ResizeMode="NoResize"
+        Title="EditWindow" Height="200" Width="200" MinHeight="200" MinWidth="200" ResizeMode="NoResize"
         Loaded="Window_Loaded">
     <Window.Resources>
         <local:Relative2AbsoluteConverter x:Key="converter"/>
@@ -26,9 +26,9 @@
         <StackPanel Orientation="Horizontal">
             <Label Content="Bìa sách: "></Label>
             <Image RenderOptions.BitmapScalingMode="HighQuality" Margin="0, 0, 5, 0" Width="60" Height="60" Source="{Binding coverImage, Converter={StaticResource converter}}"/>
-            <Button Content="Tìm hình" Margin="5 10"></Button>
+            <Button Content="Tìm hình" Margin="5 10" Click="browseImage"></Button>
         </StackPanel>
-        <Button Content="Lưu thông tin" Margin="40 10"></Button>
+        <Button Content="Lưu thông tin" Margin="40 10" Click="saveBookInfo"></Button>
     </StackPanel>
 </Window>
     
