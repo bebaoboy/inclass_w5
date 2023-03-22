@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +22,13 @@ namespace inclass_w5
     public partial class EditWindow : Window
     {
         public Book books;
-        public EditWindow()
+        private FileInfo _selectedImage = null;
+        private MainWindow main;
+        public EditWindow(MainWindow m)
         {
             InitializeComponent();
             DataContext = books;
+            main = m;
         }
 
         public void setBook(Book b)
@@ -34,6 +39,31 @@ namespace inclass_w5
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = books;
+        }
+
+        private void saveBookInfo(object sender, RoutedEventArgs e)
+        {
+            int i = 1990;
+            if (int.TryParse(bookYear.Text, out int year)) {
+                i = year;
+            }
+            main.setUpdatedBook(new Book() { title = bookName.Text, author = bookAuthor.Text, coverImage = books.coverImage, publishedYear = i }) ;
+        }
+
+        private void browseImage(object sender, RoutedEventArgs e)
+        {
+            var browseDiaglog = new OpenFileDialog();
+            browseDiaglog.Multiselect = false;
+            string folder = AppDomain.CurrentDomain.BaseDirectory;
+            browseDiaglog.InitialDirectory = folder;
+            if (browseDiaglog.ShowDialog() == true)
+            {
+                _selectedImage = new FileInfo(browseDiaglog.FileName);
+                if (_selectedImage != null )
+                {
+                    books.coverImage = _selectedImage.Directory.Name + "/" + _selectedImage.Name;
+                }
+            }
         }
     }
 }

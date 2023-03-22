@@ -9,14 +9,16 @@ using System.Windows.Media.Imaging;
 
 namespace inclass_w5
 {
-    internal class Relative2AbsoluteConverter : IValueConverter
+    internal class PathToBitmapConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string relative = (string)value;
-            string folder = AppDomain.CurrentDomain.BaseDirectory;
-            string absolute = $"{folder}{relative}";
-            return absolute;
+            var bitmap = new BitmapImage();
+            string newPath = (string)new Relative2AbsoluteConverter().Convert(value, targetType, parameter, culture);
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(newPath, UriKind.Absolute);
+            bitmap.EndInit();
+            return bitmap;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

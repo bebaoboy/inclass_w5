@@ -5,27 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:inclass_w5"
         mc:Ignorable="d"
-        Title="EditWindow" Height="200" Width="200" MinHeight="200" MinWidth="200" ResizeMode="NoResize"
+        Title="EditWindow" Height="300" Width="300" MinHeight="300" MinWidth="300" ResizeMode="NoResize"
         Loaded="Window_Loaded">
     <Window.Resources>
-        <local:Relative2AbsoluteConverter x:Key="converter"/>
+        <local:PathToBitmapConverter x:Key="converter"/>
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label Content="Tên sách: "></Label>
-            <TextBox Text="{Binding title}" IsReadOnly="False" FontWeight="Bold"></TextBox>
+            <Label Content="Tên sách: " Width="100"></Label>
+            <TextBox x:Name="bookName" Text="{Binding title}" IsReadOnly="False" FontWeight="Bold" BorderThickness="0"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label Content="Tên tác giả: "></Label>
-            <TextBox Text="{Binding author}" IsReadOnly="False" FontWeight="Bold"></TextBox>
+            <Label Content="Tên tác giả: " Width="100"></Label>
+            <TextBox x:Name="bookAuthor" Text="{Binding author}" IsReadOnly="False" FontWeight="Bold" BorderThickness="0"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label Content="Năm phát hành: "></Label>
-            <TextBox Text="{Binding publishedYear}" IsReadOnly="False" FontWeight="Bold"></TextBox>
+            <Label Content="Năm phát hành: " Width="100"></Label>
+            <TextBox x:Name="bookYear" Text="{Binding publishedYear}" IsReadOnly="False" FontWeight="Bold" BorderThickness="0"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label Content="Bìa sách: "></Label>
-            <Image RenderOptions.BitmapScalingMode="HighQuality" Margin="0, 0, 5, 0" Width="60" Height="60" Source="{Binding coverImage, Converter={StaticResource converter}}"/>
+            <Label Content="Bìa sách: " Width="100"></Label>
+            <Image x:Name="bookCover" RenderOptions.BitmapScalingMode="HighQuality" Margin="0, 0, 5, 0" Width="60" Height="60" Source="{Binding coverImage, Converter={StaticResource converter}}"/>
             <Button Content="Tìm hình" Margin="5 10" Click="browseImage"></Button>
         </StackPanel>
         <Button Content="Lưu thông tin" Margin="40 10" Click="saveBookInfo"></Button>
