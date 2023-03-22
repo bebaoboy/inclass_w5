@@ -63,6 +63,18 @@ namespace inclass_w5 {
             }
         }
 
+        public Book Clone()
+        {
+            var temp_book = new Book()
+            {
+                title = this._title,
+                author = this._author,
+                publishedYear = this._publishedYear,
+                coverImage = this._coverImage
+            };
+            return temp_book;
+        }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
         

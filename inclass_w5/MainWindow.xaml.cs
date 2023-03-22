@@ -47,13 +47,22 @@ namespace inclass_w5
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            books.Add(new Book()
+            var demoBook = new Book()
             {
                 title = "Nhà giả kim",
                 coverImage = "img/dacnhantam.jpg",
                 publishedYear = 1988,
                 author = "Paulo Coelho"
-            });
+            };
+
+            var screen = new AddWindows(demoBook.Clone());
+
+            if (screen.ShowDialog() == true)
+            {
+
+            }
+            //screen.Show();
+
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
