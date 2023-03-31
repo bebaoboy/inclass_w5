@@ -44,7 +44,6 @@ namespace inclass_w5
             }
             bookListView.ItemsSource = books;
             bookListView.SelectedIndex = 0;
-            editor = new EditWindow();
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -76,6 +75,7 @@ namespace inclass_w5
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             int i = bookListView.SelectedIndex;
+            editor = new EditWindow(this);
             editor.setBook(books[i]);
             editor.Show();
             //books[i].title = "Nha Gia Kim";
@@ -111,6 +111,12 @@ namespace inclass_w5
         {
             int i = bookListView.SelectedIndex;
             showDetail(i);
+        }
+
+        public void setUpdatedBook(Book b)
+        {
+            int i = bookListView.SelectedIndex;
+            books[i] = b;
         }
     }
 }
