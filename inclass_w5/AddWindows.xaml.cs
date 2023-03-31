@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,13 +28,27 @@ namespace inclass_w5
         {
             InitializeComponent();
             CurrentBook = book;
-
-
         }
 
         private void chooseImage(object sender, RoutedEventArgs e)
         {
-            //TODO: choose Image
+            OpenFileDialog openFile= new OpenFileDialog();
+            openFile.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *png)|*.jpg; *.jpeg; *.gif; *.bmp; *png";
+            openFile.Multiselect= false;
+            if(openFile.ShowDialog() == true)
+            {
+                var fileName = openFile.FileName.Split("\\").Last();
+
+                try
+                {
+                    File.Copy(openFile.FileName, "./img/" + fileName, true);
+                }
+                catch (Exception ex)
+                {
+
+                }
+                CurrentBook.coverImage = "./img/" + fileName;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -45,7 +61,8 @@ namespace inclass_w5
             string titlebook = title.Text;
             string authorbook = author.Text;
             int publishedYearbook = int.Parse(publish_year.Text);
-            string coverImagebook = "./img/nhagiakim.jpg";
+            string coverImagebook = imageBox.Source.ToString();
+            coverImagebook = "./img/" + coverImagebook.Split('/').Last();
             ReturnBook = new Book()
             {
                 title = titlebook,

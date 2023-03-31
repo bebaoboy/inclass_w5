@@ -48,22 +48,44 @@ namespace inclass_w5
                 i = year;
             }
             main.setUpdatedBook(new Book() { title = bookName.Text, author = bookAuthor.Text, coverImage = books.coverImage, publishedYear = i }) ;
+            this.Close();
         }
 
         private void browseImage(object sender, RoutedEventArgs e)
         {
             var browseDiaglog = new OpenFileDialog();
             browseDiaglog.Multiselect = false;
-            string folder = AppDomain.CurrentDomain.BaseDirectory;
+            browseDiaglog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *png)|*.jpg; *.jpeg; *.gif; *.bmp; *png";
+
+            if(browseDiaglog.ShowDialog() == true)
+            {
+                var fileName = browseDiaglog.FileName.Split("\\").Last();
+
+                try
+                {
+                    File.Copy(browseDiaglog.FileName, "./img/" + fileName, true);
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+                
+
+                books.coverImage = "./img/" + fileName;
+                
+            }
+
+
+            /*string folder = AppDomain.CurrentDomain.BaseDirectory;
             browseDiaglog.InitialDirectory = folder;
             if (browseDiaglog.ShowDialog() == true)
             {
                 _selectedImage = new FileInfo(browseDiaglog.FileName);
-                if (_selectedImage != null )
+                if (_selectedImage != null)
                 {
                     books.coverImage = _selectedImage.Directory.Name + "/" + _selectedImage.Name;
                 }
-            }
+            }*/
         }
 
 

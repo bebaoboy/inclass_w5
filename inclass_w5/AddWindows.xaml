@@ -10,7 +10,7 @@
     <Window.Resources>
         <local:Relative2AbsoluteConverter x:Key="converter"/>
     </Window.Resources>
-    
+
     <Canvas>
         <TextBlock Text="Tên sách" Canvas.Left="100" Canvas.Top="92"/>
         <TextBox  x:Name="title" d:Text="Tôi thấy hoa vàng trên cỏ xanh" Text="{Binding title}" Canvas.Left="177" Canvas.Top="90" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="168"/>
@@ -18,8 +18,11 @@
         <TextBox  x:Name="author" d:Text="Nguyễn Nhật Ánh" Text="{Binding author}" Canvas.Left="177" Canvas.Top="111" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="168"/>
         <TextBlock Text="Năm xuất bản" Canvas.Left="100" Canvas.Top="134"/>
         <TextBox  x:Name="publish_year" d:Text="1992" Text="{Binding publishedYear}" Canvas.Left="177" Canvas.Top="134" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="168"/>
-        <Button Content="Chọn hình"  Click="chooseImage"  Height="35" Width="80" Canvas.Left="177" Canvas.Top="182"/>
+        <Button Content="Chọn hình"  Click="chooseImage"  Height="35" Width="80" Canvas.Left="680" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Content="Huỷ" IsCancel="True" Height="36" Width="80" Canvas.Left="288" Canvas.Top="349"/>
         <Button Content="Lưu" Click="SaveBook" IsDefault="True" Height="36" Width="80" Canvas.Left="400" Canvas.Top="349" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image x:Name="imageBox" RenderOptions.BitmapScalingMode="HighQuality" MaxWidth="261" MaxHeight="187" Source="{Binding coverImage, Converter={StaticResource converter}}" Canvas.Left="415" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
     </Canvas>
 </Window>
