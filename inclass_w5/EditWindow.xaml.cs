@@ -22,6 +22,7 @@ namespace inclass_w5
     public partial class EditWindow : Window
     {
         public Book books;
+        int index = 0;
         private FileInfo _selectedImage = null;
         private MainWindow main;
         public EditWindow(MainWindow m)
@@ -31,9 +32,10 @@ namespace inclass_w5
             main = m;
         }
 
-        public void setBook(Book b)
+        public void setBook(Book b, int currentIndex)
         {
             books = b;
+            index = currentIndex;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -47,7 +49,7 @@ namespace inclass_w5
             if (int.TryParse(bookYear.Text, out int year)) {
                 i = year;
             }
-            main.setUpdatedBook(new Book() { title = bookName.Text, author = bookAuthor.Text, coverImage = books.coverImage, publishedYear = i }) ;
+            main.setUpdatedBook(new Book() { id=books.id, title = bookName.Text, author = bookAuthor.Text, coverImage = books.coverImage, publishedYear = i }, index) ;
             this.Close();
         }
 

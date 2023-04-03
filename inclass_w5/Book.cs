@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace inclass_w5 { 
+namespace inclass_w5
+{
     public class Book :INotifyPropertyChanged
     {
+        private int _id = 1;
+        public int id
+        {
+            get; set;
+        }
         private string _title;
         public string title
         {
@@ -67,6 +67,7 @@ namespace inclass_w5 {
         {
             var temp_book = new Book()
             {
+                _id = this._id,
                 title = this._title,
                 author = this._author,
                 publishedYear = this._publishedYear,
