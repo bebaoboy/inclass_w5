@@ -155,6 +155,17 @@ namespace inclass_w5
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
             int i = bookListView.SelectedIndex;
+            if (i == -1) return;
+            string sql = "delete from book where id = @id";
+            var command = new SqlCommand(sql, _connection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = books[i].id;
+
+            int rows = command.ExecuteNonQuery();
+
+            if (rows > 0)
+            {
+                MessageBox.Show($"Book {books[i].title} is deleted");
+            }
             books.RemoveAt(i);
         }
 
@@ -226,6 +237,32 @@ namespace inclass_w5
             if (rows > 0)
             {
                 MessageBox.Show($"Book {b.title} is updated");
+            }
+        }
+
+        public void setInsertBook(Book b)
+        {
+            string sql = "insert into book values(@title, @author, @year, @cover)";
+            var command = new SqlCommand(sql, _connection);
+            command.Parameters.Add("@title", SqlDbType.NVarChar).Value = b.title;
+            command.Parameters.Add("@author", SqlDbType.NVarChar).Value = b.author;
+            command.Parameters.Add("@year", SqlDbType.Int).Value = b.publishedYear;
+            command.Parameters.Add("@cover", SqlDbType.NVarChar).Value = b.coverImage;
+
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        books.Last().id = (int)reader["id"];
+                        MessageBox.Show($"Book {b.title} is added");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Book {b.title} is NOT added\n" + e.ToString());
             }
         }
     }
