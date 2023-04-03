@@ -1,82 +1,7 @@
-USE [master]
+﻿USE [master]
 GO
 /****** Object:  Database [BookDb]    Script Date: 4/3/2023 11:40:56 AM ******/
 CREATE DATABASE [BookDb]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'BookDb', FILENAME = N'D:\NAM 2\CSDL\SourceSQL\BookDb.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'BookDb_log', FILENAME = N'D:\NAM 2\CSDL\SourceSQL\BookDb_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
- WITH CATALOG_COLLATION = DATABASE_DEFAULT
-GO
-ALTER DATABASE [BookDb] SET COMPATIBILITY_LEVEL = 150
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [BookDb].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [BookDb] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [BookDb] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [BookDb] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [BookDb] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [BookDb] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [BookDb] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [BookDb] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [BookDb] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [BookDb] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [BookDb] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [BookDb] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [BookDb] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [BookDb] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [BookDb] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [BookDb] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [BookDb] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [BookDb] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [BookDb] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [BookDb] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [BookDb] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [BookDb] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [BookDb] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [BookDb] SET RECOVERY SIMPLE 
-GO
-ALTER DATABASE [BookDb] SET  MULTI_USER 
-GO
-ALTER DATABASE [BookDb] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [BookDb] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [BookDb] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [BookDb] SET TARGET_RECOVERY_TIME = 60 SECONDS 
-GO
-ALTER DATABASE [BookDb] SET DELAYED_DURABILITY = DISABLED 
-GO
-ALTER DATABASE [BookDb] SET ACCELERATED_DATABASE_RECOVERY = OFF  
-GO
-ALTER DATABASE [BookDb] SET QUERY_STORE = OFF
 GO
 USE [BookDb]
 GO
@@ -100,4 +25,29 @@ GO
 USE [master]
 GO
 ALTER DATABASE [BookDb] SET  READ_WRITE 
+GO
+
+USE [BookDb]
+GO
+SET IDENTITY_INSERT [dbo].[Book] ON 
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (1, N'Nhà Giả Kim', N'Pauloo Coelho', 1988, N'img/dacnhantam.jpg')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (2, N'Truyện cổ tích', N'Vân Anh', 2012, N'img/truyencotich.webp')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (4, N'Bệnh dạ dày', N'NXB Hồng Đức', 2020, N'img/benhdaday.png')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (5, N'Gió lạnh đầu mùa', N'Thạch Lam', 2015, N'img/giolanhdaumua.jpg')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (7, N'2.0 Nha gia kim', N'Paulo Coelho', 2022, N'./img/nhagiakim.jpg')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (9, N'5.0 Nha gia kim', N'Paulo Coelho', 2022, N'./img/nhagiakim.jpg')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (10, N'22.0 Nha gia kim', N'Paulo Coelho', 2022, N'./img/nhagiakim.jpg')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (11, N'Hoàng Tử Bé', N'Nguyễn Thành Long', 2016, N'img/hoangtube.jpg')
+GO
+INSERT [dbo].[Book] ([id], [title], [author], [year], [cover]) VALUES (12, N'992.0 Nha gia kim', N'Paulo Coelho', 2022, N'./img/nhagiakim.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[Book] OFF
 GO
